@@ -24,5 +24,10 @@ for x in os.listdir('raw'):
 for k, items in carparks.items():
     items.sort()
     with open('out/{}.csv'.format(k), 'w') as f:
+        # Write header
+        f.write('date,')
+        if items:
+            f.write(','.join('lot_type_{i},lots_total_{i},lots_available_{i}'.format(i=i) for i in range((len(items[0]) - 1) // 3)))
+        f.write('\n')
         for x in items:
             f.write(','.join(str(z) for z in x) + '\n')
