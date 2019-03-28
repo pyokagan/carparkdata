@@ -22,6 +22,7 @@ for x in os.listdir('raw'):
         items.append(myitem)
 
 for k, items in carparks.items():
+    items.sort()
     with open('out/{}.csv'.format(k), 'w') as f:
         for x in items:
             f.write(','.join(str(z) for z in x) + '\n')
