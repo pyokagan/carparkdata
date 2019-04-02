@@ -7,6 +7,7 @@ import json
 carparks = {}
 
 for x in os.listdir('raw'):
+    print(x)
     with open(os.path.join('raw', x), 'r') as f:
         y = json.load(f)
     for carpark_data in y['items'][0]['carpark_data']:
